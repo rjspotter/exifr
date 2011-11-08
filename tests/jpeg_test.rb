@@ -143,5 +143,8 @@ class JPEGTest < Test::Unit::TestCase
     assert_equal(j[:category], "tst")
 
   end
-
+  def test_iptc_hashy_nils
+    j = JPEG.new(f('exit_lamp-post_disney_gehry_01.jpeg'))
+    assert(!j.to_hash.keys.include?(nil))
+  end
 end

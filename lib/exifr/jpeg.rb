@@ -137,7 +137,7 @@ module EXIFR
                    @values[tag_type] << stream.read(length)
                  end
                else
-                 @values[tag_type] = stream.read(length)
+                 @values[tag_type] = stream.read(length) unless tag_type == nil
                end
              else
                stream.seek(-1, IO::SEEK_CUR)
